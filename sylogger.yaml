@@ -1,0 +1,13 @@
+# vim:ft=yaml
+url: "http://127.0.0.1:8007"
+
+as_token: wfghWEGh3wgHWEf3478sHFWE
+hs_token: ugw8243igya57aaBAGFfgeyu
+id: "sylogger"
+
+sender_localpart: sylogger
+rate_limited: False
+namespaces:
+    users []
+    rooms []
+    aliases[]
