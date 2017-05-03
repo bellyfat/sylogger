@@ -130,3 +130,16 @@ class Transaction(MethodView):
         ''' Process m.room.guest_access event '''
         info = "guest_access: %s" % event['content']['guest_access']
         self.reg.register(event, info)
+
+    def m_room_canonical_alias(self, event):
+        ''' Process m.room.canonical_alias event '''
+        if event['content']['alias'] == '':
+            info = "canonical_alias: replaced"
+        else:
+            info = "canonical_alias: %s" % event['content']['alias']
+        self.reg.register(event, info)
+
+    def m_room_avatar(self, event):
+        ''' Process m.room.avatar '''
+        info = "room_avatar: %s" % self.reg.convert_mxc(event['content']['url'])
+        self.reg.register(event, info)
