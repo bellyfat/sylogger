@@ -8,6 +8,12 @@ id: "sylogger"
 sender_localpart: sylogger
 rate_limited: False
 namespaces:
-    users []
-    rooms []
-    aliases[]
+    users:
+        - exclusive: false
+          regex: '@.*'
+    rooms:
+        - exclusive: false
+          regex: '@.*'
+    aliases:
+        - exclusive: false
+          regex: '#.*'
