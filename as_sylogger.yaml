@@ -1,0 +1,15 @@
+# vim:ft=yaml
+url: "http://127.0.0.1:5001"
+
+as_token: wfghWEGh3wgHWEf3478sHFWE
+hs_token: ugw8243igya57aaBAGFfgeyu
+id: "as_sylogger"
+
+sender_localpart: as_sylogger
+rate_limited: False
+namespaces:
+    users:
+        - exclusive: false
+          regex: '@.*'
+    rooms: []
+    aliases: []
