@@ -26,7 +26,7 @@ class Transaction(MethodView):
     ''' Class for implement /transaction API part '''
 
     def __init__(self, reg):
-        self.logger = logging.getLogger('matrix-sylogger')
+        self.logger = logging.getLogger('matrix_sylogger')
         self.logger.setLevel(logging.DEBUG)
         handler = logging.handlers.SysLogHandler(address = '/dev/log')
         self.logger.addHandler(handler)
