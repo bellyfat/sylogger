@@ -52,7 +52,7 @@ class Sylogger(object):
     def run(self):
         ''' Flask application start '''
         transact_view = Transaction.as_view('transact_api', self)
-        self.app.add_url_rule(4
+        self.app.add_url_rule(
             "/transactions/<transaction>",
             view_func=transact_view, methods=["PUT"]
         )
