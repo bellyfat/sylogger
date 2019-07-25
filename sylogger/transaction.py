@@ -18,7 +18,7 @@
 from flask.views import MethodView
 from flask import jsonify, request
 import logging
-import logging.handlers
+# import logging.handlers
 import json
 import datetime
 
@@ -27,9 +27,12 @@ class Transaction(MethodView):
 
     def __init__(self, reg):
         self.logger = logging.getLogger('matrix_sylogger')
-        self.logger.setLevel(logging.DEBUG)
-        handler = logging.handlers.SysLogHandler(address = '/dev/log')
-        self.logger.addHandler(handler)
+        self.logger.setLevel(logging.INFO)
+        ch = logging.StreamHandler()
+        ch.setLevel(logging.INFO)
+        self.logger.addHandler(ch)
+        # handler = logging.handlers.SysLogHandler(address = '/dev/log')
+        # self.logger.addHandler(handler)
 
     def put(self, transaction):
         '''
