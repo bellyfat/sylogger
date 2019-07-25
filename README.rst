@@ -1,6 +1,8 @@
 About
 =====
 
+OUTDATED!
+
 Sylogger is `Application Service <http://matrix.org/docs/guides/application_services.html>`_
  for `matrix-org/synapse <https://github.com/matrix-org/synapse>`_
  server. It provide ability for logging every communication event on homeserver.

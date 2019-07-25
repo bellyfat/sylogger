@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 from setuptools import setup, find_packages
 from os.path import join, dirname
@@ -19,7 +20,7 @@ setup(
     data_files = [
         ("", ["LICENSE"]),
         ("/lib/systemd/system", ["contrib/systemd/matrix-sylogger.service"]),
-        ("/etc/matrix-synapse", ["sylogger.conf", "sylogger.yaml"])
+        ("/opt/synapse", ["sylogger.conf", "as_sylogger.yaml"])
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',
