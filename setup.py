@@ -15,7 +15,8 @@ setup(
     long_description=open(join(dirname(__file__), 'README.rst')).read(),
     install_requires=[
         'Flask>=1.0.0',
-        'waitress'
+        'waitress',
+        'configparser'
     ],
     data_files = [
         ("", ["LICENSE"]),

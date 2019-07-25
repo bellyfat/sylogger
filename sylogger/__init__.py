@@ -20,7 +20,7 @@ logging.getLogger('werkzeug').setLevel(logging.INFO)
 
 from .transaction import Transaction
 
-import ConfigParser
+import configparser
 
 def create_app(config_filename = "/opt/synapse/sylogger.conf"):
     app = flask.Flask(__name__)
@@ -63,10 +63,10 @@ class Sylogger(object):
 
     def parse_config(self):
         ''' Configuration parse '''
-        self.cfg = ConfigParser.SafeConfigParser(self.CONFIG_DEFAULTS)
+        self.cfg = configparser.SafeConfigParser(self.CONFIG_DEFAULTS)
         for sect in self.CONFIG_SECTIONS:
             try:
                 self.cfg.add_section(sect)
-            except ConfigParser.DuplicateSectionError:
+            except configparser.DuplicateSectionError:
                 pass
         self.cfg.read(self.configfile)
