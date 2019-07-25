@@ -6,7 +6,8 @@ Type=simple
 User=matrix-synapse
 WorkingDirectory=/var/lib/matrix-synapse
 EnvironmentFile=/etc/default/matrix-synapse
-ExecStart=/usr/bin/python -m sylogger.sylogger /etc/matrix-synapse/sylogger.conf
+#ExecStart=/usr/bin/python -m sylogger.sylogger /etc/matrix-synapse/sylogger.conf
+ExecStart=/opt/synapse/env/bin/waitress-serve --port=5001 --call 'sylogger:create_app'
 Restart=always
 RestartSec=3
 

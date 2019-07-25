@@ -2,21 +2,19 @@
 
 from setuptools import setup, find_packages
 from os.path import join, dirname
-import sys
-if not sys.version_info[0] == 2:
-    sys.exit("Python 3 is not supported")
 
 setup(
     name='sylogger',
-    version='0.1',
-    author='Slipeer',
-    author_email='Slipeer+sylogger@gmail.com',
+    version='0.2',
+    author='Pavel Kardash',
+    author_email='pavel@kardash.su',
     license='APACHE 2.0',
     packages=find_packages(),
-    description='Conversation logger application service for matrix-org/sydent',
+    description='Conversation logger application service for matrix-org/synapse',
     long_description=open(join(dirname(__file__), 'README.rst')).read(),
     install_requires=[
-        'Flask==0.8'
+        'Flask>=1.0.0',
+        'waitress'
     ],
     data_files = [
         ("", ["LICENSE"]),
