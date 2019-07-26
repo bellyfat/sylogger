@@ -18,21 +18,18 @@
 from flask.views import MethodView
 from flask import jsonify, request
 import logging
-# import logging.handlers
 import json
 import datetime
+
+logging.basicConfig(level=logging.DEBUG, format='%(message)s')
+logger = logging.getLogger('matrix_sylogger')
+logger.setLevel(logging.INFO)
 
 class Transaction(MethodView):
     ''' Class for implement /transaction API part '''
 
-    def __init__(self, reg):
-        self.logger = logging.getLogger('matrix_sylogger')
-        self.logger.setLevel(logging.INFO)
-        ch = logging.StreamHandler()
-        ch.setLevel(logging.INFO)
-        self.logger.addHandler(ch)
-        # handler = logging.handlers.SysLogHandler(address = '/dev/log')
-        # self.logger.addHandler(handler)
+    def __init__(self, sylogger):
+        pass
 
     def put(self, transaction):
         '''
@@ -65,7 +62,7 @@ class Transaction(MethodView):
             event['origin_server_ts']/1000
         ).strftime('%Y-%m-%d %H:%M:%S')
         info = info.replace('\r', '').replace('\n', '\\n')
-        self.logger.info("%s %s %s %s %s" % (
+        logger.info("%s %s %s %s %s" % (
             dat, event['type'], event['sender'], event['room_id'], info)
         )
 
@@ -160,7 +157,7 @@ class Transaction(MethodView):
     def m_room_canonical_alias(self, event):
         ''' Process m.room.canonical_alias event '''
         if event['content']['alias'] == '':
-            info = "canonical_alias: replaced"
+            info = "canonical_alias: removed"
         else:
             info = "canonical_alias: %s" % event['content']['alias']
         self.register(event, info)
